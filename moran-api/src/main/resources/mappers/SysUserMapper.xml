@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.moran.mapper.SysUserMapper">
+  <resultMap id="baseResultMap" type="com.moran.model.SysUser">
+    <id property="id" column="id" jdbcType="INTEGER"/>
+    <result property="account" column="account" jdbcType="VARCHAR"/><!-- 账号 -->
+    <result property="password" column="password" jdbcType="VARCHAR"/><!-- 密码 -->
+    <result property="salt" column="salt" jdbcType="VARCHAR"/><!-- 密码盐 -->
+    <result property="nickName" column="nick_name" jdbcType="VARCHAR"/><!-- 用户昵称 -->
+    <result property="avatar" column="avatar" jdbcType="VARCHAR"/><!-- 头像 -->
+    <result property="mobile" column="mobile" jdbcType="VARCHAR"/><!-- 手机号 -->
+    <result property="email" column="email" jdbcType="VARCHAR"/><!-- 邮箱 -->
+    <result property="remark" column="remark" jdbcType="VARCHAR"/><!-- 备注 -->
+    <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/><!-- 创建时间 -->
+    <result property="roleIds" column="role_ids" jdbcType="LONGVARCHAR"/><!-- 角色ID集合 -->
+    <result property="status" column="status" jdbcType="BIT"/><!-- 状态 -->
+    <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/><!-- 更新时间 -->
+    <result property="root" column="root" jdbcType="TINYINT"/><!-- 主账号 -->
+  </resultMap>
+
+  <select id="list" resultMap="baseResultMap">
+      select u.*, group_concat(r.name) roleNames
+      from sys_user u
+      left join sys_role r on json_contains(u.role_ids, json_array(r.id))
+      <where>
+          <if test="account != null and account != ''">
+              and u.account like concat('%', #{account}, '%')
+          </if>
+          <if test="nickName != null and nickName != ''">
+              and u.nick_name like concat('%', #{nickName}, '%')
+          </if>
+      </where>
+      group by u.id
+      order by u.update_time desc
+  </select>
+  <select id="list_COUNT" resultType="integer">
+      select count(u.id)
+      from sys_user u
+  </select>
+</mapper>
