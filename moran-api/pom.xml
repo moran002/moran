@@ -29,6 +29,7 @@
     </properties>
 
     <dependencies>
+
         <!-- 验证码 -->
         <dependency>
             <groupId>com.github.whvcse</groupId>
