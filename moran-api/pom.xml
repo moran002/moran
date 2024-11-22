@@ -23,7 +23,7 @@
         <pagehelper.version>1.4.6</pagehelper.version>
         <mybatis.version>3.0.3</mybatis.version>
         <mapper.version>4.2.2</mapper.version>
-        <sa-token.version>1.37.0</sa-token.version>
+        <sa-token.version>1.39.0</sa-token.version>
         <data.version>3.1.0</data.version>
         <hutool-version>5.8.25</hutool-version>
     </properties>
@@ -168,7 +168,7 @@
     </dependencies>
 
     <build>
-        <finalName>spring-boot3-api</finalName>
+        <finalName>moran-api</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
