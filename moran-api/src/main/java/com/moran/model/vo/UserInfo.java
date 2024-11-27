@@ -1,5 +1,6 @@
 package com.moran.model.vo;
 
+import cn.hutool.core.util.StrUtil;
 import com.moran.model.SysMenu;
 import com.moran.model.SysUser;
 import lombok.Getter;
@@ -33,7 +34,7 @@ public class UserInfo {
         userInfo.setUserId(user.getId());
         userInfo.setUser(user);
         userInfo.setMenus(menus);
-        userInfo.setPermissions(menus.stream().filter(m -> m.getType() == 2).map(SysMenu::getApi).collect(Collectors.toList()));
+        userInfo.setPermissions(menus.stream().map(SysMenu::getApi).filter(StrUtil::isNotBlank).collect(Collectors.toList()));
         return userInfo;
     }
 }

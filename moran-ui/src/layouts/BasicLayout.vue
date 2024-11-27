@@ -2,7 +2,6 @@
   <lay-config-provider
     :themeVariable="appStore.themeVariable"
     :theme="appStore.theme"
-    :locales="locales"
     :locale="appStore.locale"
   >
     <lay-layout
@@ -118,45 +117,11 @@
                 ></lay-icon>
               </lay-fullscreen>
             </lay-menu-item>
-<!--            <lay-menu-item>-->
-<!--              <global-message-tab :flag="flag">-->
-<!--                <lay-icon-->
-<!--                  type="layui-icon-notice"-->
-<!--                  @click="changeDropdown"-->
-<!--                ></lay-icon>-->
-<!--              </global-message-tab>-->
-<!--            </lay-menu-item>-->
-<!--            <lay-menu-item>-->
-<!--              <lay-dropdown updateAtScroll placement="bottom">-->
-<!--                <lay-icon type="layui-icon-website"></lay-icon>-->
-<!--                <template #content>-->
-<!--                  <lay-dropdown-menu>-->
-<!--                    <lay-dropdown-menu-item-->
-<!--                      @click="() => (appStore.locale = 'zh_CN')"-->
-<!--                    >-->
-<!--                      <template #default>中文</template>-->
-<!--                    </lay-dropdown-menu-item>-->
-<!--                    <lay-dropdown-menu-item-->
-<!--                      @click="() => (appStore.locale = 'en_US')"-->
-<!--                    >-->
-<!--                      <template #default>英文</template>-->
-<!--                    </lay-dropdown-menu-item>-->
-<!--                  </lay-dropdown-menu>-->
-<!--                </template>-->
-<!--              </lay-dropdown>-->
-<!--            </lay-menu-item>-->
             <lay-menu-item>
               <lay-dropdown updateAtScroll placement="bottom">
                 <lay-icon type="layui-icon-username"></lay-icon>
                 <template #content>
                   <lay-dropdown-menu>
-<!--                    <lay-dropdown-menu-item @click="toUserInfo">-->
-<!--                      <template #default>用户信息</template>-->
-<!--                    </lay-dropdown-menu-item>-->
-<!--                    <lay-dropdown-menu-item @click="toSystemSet">-->
-<!--                      <template #default>系统设置</template>-->
-<!--                    </lay-dropdown-menu-item>-->
-<!--                    <lay-line></lay-line>-->
                     <lay-dropdown-menu-item @click="logOut">
                       <template #default>注销登录</template>
                     </lay-dropdown-menu-item>
@@ -202,8 +167,6 @@ import GlobalMainMenu from './global/GlobalMainMenu.vue'
 import GlobalMessageTab from './global/GlobalMessageTab.vue'
 import { useRouter } from 'vue-router'
 import { useMenu } from './composable/useMenu'
-import zh_CN from '../lang/zh_CN'
-import en_US from '../lang/en_US'
 import {logout} from "@/api/module/dictionary";
 import {layer} from "@layui/layui-vue";
 
@@ -281,10 +244,6 @@ export default {
       })
     }
 
-    const locales = [
-      { name: 'zh_CN', locale: zh_CN, merge: true },
-      { name: 'en_US', locale: en_US, merge: true }
-    ]
 
     function toUserInfo() {
       router.push('/enrollee/profile')
@@ -319,7 +278,6 @@ export default {
       changeVisible,
       refresh,
       logOut,
-      locales,
       toUserInfo,
       toSystemSet,
       changeDropdown,
