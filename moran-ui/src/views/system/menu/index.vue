@@ -160,7 +160,7 @@ const delById = (row: any) => {
 .table-box {
   margin-top: 10px;
   padding: 10px;
-  height: 80%;
+  height: 100%;
   width: 100%;
   border-radius: 4px;
   box-sizing: border-box;
