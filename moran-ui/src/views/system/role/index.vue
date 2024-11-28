@@ -8,7 +8,6 @@
               <lay-input
                   v-model="queryRole.roleName"
                   placeholder="请输入"
-                  size="sm"
                   :allow-clear="true"
                   style="width: 98%"
               ></lay-input>
@@ -19,7 +18,6 @@
               <lay-input
                   v-model="queryRole.remark"
                   placeholder="请输入"
-                  size="sm"
                   :allow-clear="true"
                   style="width: 98%"
               ></lay-input>
@@ -30,31 +28,29 @@
               <lay-button
                   style="margin-left: 20px"
                   type="normal"
-                  size="sm"
                   @click="search"
               >
                 查询
               </lay-button>
-              <lay-button size="sm" @click="reset"> 重置</lay-button>
+              <lay-button @click="reset"> 重置</lay-button>
             </lay-form-item>
           </lay-col>
         </lay-row>
       </lay-form>
     </lay-card>
     <!-- table -->
-    <div class="table-box">
-      <lay-table
-          :page="queryRole"
-          :height="'100%'"
-          :columns="columns"
-          :loading="loading"
-          :default-toolbar="true"
-          :data-source="list"
-          @change="change"
+    <div>
+      <lay-table class="table-box"
+                 :page="queryRole"
+                 :height="'100%'"
+                 :columns="columns"
+                 :loading="loading"
+                 :default-toolbar="['filter']"
+                 :data-source="list"
+                 @change="change"
       >
         <template v-slot:toolbar>
           <lay-button v-permission="['/system/role/update']"
-                      size="sm"
                       type="primary"
                       @click="updateTable(null)"
           >
@@ -173,15 +169,7 @@ const delById = (row: any) => {
   height: calc(100vh - 110px);
   margin-top: 10px;
   box-sizing: border-box;
-  overflow: hidden;
-}
-
-.top-search {
-  margin-top: 10px;
-  padding: 10px;
-  height: 40px;
-  border-radius: 4px;
-  background-color: #fff;
+  overflow: auto;
 }
 
 .table-box {
@@ -192,17 +180,5 @@ const delById = (row: any) => {
   border-radius: 4px;
   box-sizing: border-box;
   background-color: #fff;
-}
-
-.search-input {
-  display: inline-block;
-  width: 98%;
-  margin-right: 10px;
-}
-
-.isChecked {
-  display: inline-block;
-  background-color: #e8f1ff;
-  color: red;
 }
 </style>

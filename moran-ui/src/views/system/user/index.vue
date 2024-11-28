@@ -1,14 +1,13 @@
 <template>
   <lay-container fluid="true" class="user-box">
     <lay-card>
-      <lay-form style="margin-top: 10px">
+      <lay-form >
         <lay-row>
           <lay-col :md="5">
             <lay-form-item label="用户账号" label-width="80">
               <lay-input
                   v-model="queryForm.account"
                   placeholder="请输入"
-                  size="sm"
                   :allow-clear="true"
                   style="width: 98%"
               ></lay-input>
@@ -19,7 +18,6 @@
               <lay-input
                   v-model="queryForm.nickName"
                   placeholder="请输入"
-                  size="sm"
                   :allow-clear="true"
                   style="width: 98%"
               ></lay-input>
@@ -30,29 +28,34 @@
               <lay-button
                   style="margin-left: 20px"
                   type="primary"
-                  size="sm"
                   @click="search"
               >
                 查询
               </lay-button>
-              <lay-button size="sm" @click="reset"> 重置</lay-button>
+              <lay-button  @click="reset"> 重置</lay-button>
             </lay-form-item>
           </lay-col>
         </lay-row>
       </lay-form>
     </lay-card>
     <!-- table -->
-    <div class="table-box">
-      <lay-table
+    <div >
+      <lay-table class="table-box"
           :page="page"
           :height="'100%'"
           :columns="columns"
           :loading="loading"
-          :default-toolbar="true"
+          :default-toolbar="['filter']"
           :data-source="list"
           @change="change"
           :id="list.userId"
       >
+        <template v-slot:toolbar>
+          <lay-button size="sm" type="primary" @click="updateTable()" v-permission="['/system/user/update']">
+            <lay-icon class="layui-icon-addition"></lay-icon>
+            新增
+          </lay-button>
+        </template>
         <template #status="{ row }">
           <lay-switch
               :model-value="row.status"
@@ -61,12 +64,6 @@
         </template>
         <template #avatar="{ row }">
           <lay-avatar :src="row.avatar"></lay-avatar>
-        </template>
-        <template v-slot:toolbar>
-          <lay-button size="sm" type="primary" @click="updateTable()" v-permission="['/system/user/update']">
-            <lay-icon class="layui-icon-addition"></lay-icon>
-            新增
-          </lay-button>
         </template>
         <template v-slot:operator="{ row }">
           <lay-button v-permission="['/system/user/update']"
@@ -196,36 +193,16 @@ onMounted(() => {
   height: calc(100vh - 110px);
   margin-top: 10px;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow: auto;
 }
 
-.top-search {
-  margin-top: 10px;
-  padding: 10px;
-  height: 40px;
-  border-radius: 4px;
-  background-color: #fff;
-}
 
 .table-box {
-  margin-top: 10px;
   padding: 10px;
   height: 700px;
   width: 100%;
   border-radius: 4px;
   box-sizing: border-box;
   background-color: #fff;
-}
-
-.search-input {
-  display: inline-block;
-  width: 98%;
-  margin-right: 10px;
-}
-
-.isChecked {
-  display: inline-block;
-  background-color: #e8f1ff;
-  color: red;
 }
 </style>
