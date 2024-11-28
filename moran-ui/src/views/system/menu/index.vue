@@ -43,6 +43,7 @@
         <template v-slot:toolbar>
           <lay-button v-permission="['/system/menu/update']"
                       @click="updateTable(null)"
+                      size="xs"
                       type="normal"
           >
             新建
