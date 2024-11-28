@@ -1,14 +1,18 @@
 package com.moran.service;
 
+import cn.hutool.core.collection.CollUtil;
+import com.moran.mapper.SysMenuMapper;
+import com.moran.model.SysMenu;
 import com.moran.model.dto.system.MenuDTO;
 import io.mybatis.mapper.example.ExampleWrapper;
-import org.springframework.stereotype.Service;
 import io.mybatis.service.AbstractService;
-import com.moran.model.SysMenu;
-import com.moran.mapper.SysMenuMapper;
+import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * sys_menu - 菜单表
@@ -38,5 +42,17 @@ public class  SysMenuService extends AbstractService<SysMenu, Integer, SysMenuMa
             return;
         }
         updateSelective(menu);
+    }
+
+    public Set<Integer> completionMenuIds(List<Integer> menuIds) {
+        Set<Integer> set = new HashSet<>(menuIds);
+        List<SysMenu> menus = findAll();
+        Set<Integer> collect = menus.stream().filter(m -> menuIds.contains(m.getId())).map(SysMenu::getParentId).collect(Collectors.toSet());
+        set.addAll(collect);
+        if (CollUtil.isNotEmpty(collect)) {
+            Set<Integer> collect2 = menus.stream().filter(m -> collect.contains(m.getId())).map(SysMenu::getParentId).collect(Collectors.toSet());
+            set.addAll(collect2);
+        }
+        return set;
     }
 }

@@ -43,11 +43,6 @@ export default [
                 component: () => import('@/views/system/menu/index.vue'),
                 meta: {title: '菜单管理', requireAuth: true},
             },
-            {
-                path: '/system/option',
-                component: () => import('@/views/system/option/index.vue'),
-                meta: {title: '操作日志', requireAuth: true},
-            },
         ]
     }
 

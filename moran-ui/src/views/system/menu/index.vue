@@ -7,24 +7,21 @@
             <lay-form-item label="菜单名称" label-width="80">
               <lay-input
                   v-model="queryMenu.name"
-                  placeholder="请输入"
-                  size="sm"
+                  placeholder="请输入菜单名称"
                   :allow-clear="true"
-                  style="width: 98%"
               ></lay-input>
             </lay-form-item>
           </lay-col>
           <lay-col :md="5">
-            <lay-form-item label-width="20">
+            <lay-form-item label-width="20" >
               <lay-button
                   style="margin-left: 20px"
                   type="normal"
-                  size="sm"
                   @click="fetchData"
               >
                 查询
               </lay-button>
-              <lay-button size="sm" @click="reset"> 重置</lay-button>
+              <lay-button  @click="reset"> 重置</lay-button>
             </lay-form-item>
           </lay-col>
         </lay-row>
@@ -41,10 +38,10 @@
           :data-source="list"
           :default-toolbar="false"
           :expand-index="1"
+          :default-expand-all="false"
       >
-        <template #toolbar>
+        <template v-slot:toolbar>
           <lay-button v-permission="['/system/menu/update']"
-                      size="sm"
                       @click="updateTable(null)"
                       type="normal"
           >
@@ -157,40 +154,16 @@ const delById = (row: any) => {
   height: calc(100vh - 110px);
   margin-top: 10px;
   box-sizing: border-box;
-  overflow: hidden;
-}
-
-.top-search {
-  margin-top: 10px;
-  padding: 10px;
-  height: 40px;
-  border-radius: 4px;
-  background-color: #fff;
+  overflow: auto;
 }
 
 .table-box {
   margin-top: 10px;
   padding: 10px;
-  height: 700px;
+  height: 80%;
   width: 100%;
   border-radius: 4px;
   box-sizing: border-box;
   background-color: #fff;
-}
-
-.search-input {
-  display: inline-block;
-  width: 98%;
-  margin-right: 10px;
-}
-
-.table-style {
-  margin-top: 10px;
-}
-
-.isChecked {
-  display: inline-block;
-  background-color: #e8f1ff;
-  color: red;
 }
 </style>

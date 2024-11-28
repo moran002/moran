@@ -10,6 +10,7 @@ export const columns = [
         title: '菜单名称',
         key: 'name',
         customSlot: 'name',
+        width: 300
     },
     {
         title: '路由地址',

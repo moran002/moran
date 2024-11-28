@@ -1,8 +1,8 @@
 package com.moran.mapper;
 
-import com.moran.util.MyMapper;
 
 import com.moran.model.SysMenu;
+import io.mybatis.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
  * @author 系统自动生成
  */
 @org.apache.ibatis.annotations.Mapper
-public interface SysMenuMapper extends MyMapper<SysMenu, Integer> {
+public interface SysMenuMapper extends BaseMapper<SysMenu, Integer> {
 
     List<SysMenu> findByUserId(@Param("userId") Integer userId);
 }

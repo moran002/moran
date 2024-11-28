@@ -92,14 +92,4 @@ public class AuthController {
         redisService.set(key, code, 5*60);
         return ResponseBean.ok(CaptChaVO.convert(key, base64));
     }
-    
-    /**
-     * health
-     * @Author :moran
-     * @Date : 2024/11/22
-     **/
-    @GetMapping("/health")
-    public ResponseBean<Boolean> health() {
-        return ResponseBean.ok(true);
-    }
 }
