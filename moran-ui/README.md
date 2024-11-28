@@ -49,15 +49,3 @@ npm run dev
 npm run build
 
 ```
-
-## 预览截图
-
-| 预览                  |                界面   |
-|-----------------------|-----------------------|
-| ![](resources/1.jpg)  | ![](resources/2.jpg)  |
-| ![](resources/3.jpg)  | ![](resources/4.jpg)  |
-| ![](resources/5.jpg)  | ![](resources/6.jpg)  |
-| ![](resources/7.jpg)  | ![](resources/8.jpg)  |
-| ![](resources/9.jpg)  | ![](resources/10.jpg) |
-| ![](resources/11.jpg) | ![](resources/12.jpg) |
-| ![](resources/13.jpg) | ![](resources/14.jpg) |
