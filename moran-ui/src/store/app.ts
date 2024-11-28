@@ -4,10 +4,10 @@ export const useAppStore = defineStore({
   id: 'app',
   state: () => {
     return {
-      tab: true,
+      tab: false,
       logo: true,
       level: true,
-      inverted: false,
+      inverted: true,
       routerAlive: true,
       collapse: false,
       subfield: false,

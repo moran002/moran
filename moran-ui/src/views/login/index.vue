@@ -2,15 +2,14 @@
   <div class="login-wrap">
     <div class="login-root">
       <div class="login-main">
-        <img class="login-one-ball"
-             src="https://assets.codehub.cn/micro-frontend/login/fca1d5960ccf0dfc8e32719d8a1d80d2.png"/>
+<!--        <img class="login-one-ball"-->
+<!--             src="https://assets.codehub.cn/micro-frontend/login/fca1d5960ccf0dfc8e32719d8a1d80d2.png"/>-->
         <img class="login-two-ball"
              src="https://assets.codehub.cn/micro-frontend/login/4bcf705dad662b33a4fc24aaa67f6234.png"/>
         <div class="login-container">
           <div class="login-side">
             <div class="login-bg-title">
               <h1>layui vue admin</h1>
-
               <h3 style="margin: 20px auto">
                 开 箱 即 用 的 layui vue 企 业 级 前 端 模 板
               </h3>
