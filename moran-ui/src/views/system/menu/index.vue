@@ -13,7 +13,7 @@
             </lay-form-item>
           </lay-col>
           <lay-col :md="5">
-            <lay-form-item label-width="20" >
+            <lay-form-item label-width="20">
               <lay-button
                   style="margin-left: 20px"
                   type="normal"
@@ -21,7 +21,7 @@
               >
                 查询
               </lay-button>
-              <lay-button  @click="reset"> 重置</lay-button>
+              <lay-button @click="reset"> 重置</lay-button>
             </lay-form-item>
           </lay-col>
         </lay-row>
@@ -49,9 +49,9 @@
             新建
           </lay-button>
         </template>
-        <template #name="{ row }">
+        <template #title="{ row }">
           <lay-icon :class="row.icon"></lay-icon> &nbsp;&nbsp;
-          {{ row.name }}
+          {{ row.title }}
         </template>
         <template #option="{ row }">
           <lay-button v-permission="['/system/menu/update']"
@@ -95,10 +95,10 @@
   </lay-container>
 </template>
 <script setup lang="ts">
-import {defineComponent, onMounted, reactive, ref, toRefs} from 'vue'
+import {onMounted, ref} from 'vue'
 import {layer} from '@layui/layui-vue'
-import {getList, update, del} from '@/api/module/system/menu'
-import {loading, title, edit, columns, list, queryMenu, updateMenu} from './columns'
+import {getList, del} from '@/api/module/system/menu'
+import {loading, columns, list, queryMenu} from './columns'
 import EditMenu from "@/views/system/menu/editMenu.vue";
 
 const editRef = ref<any>();

@@ -27,7 +27,7 @@ const cancel = async () => {
   updateMenu.value = {
     id: '',
     parentId: '',
-    name: '',
+    title: '',
     type: 1,
     sort: 0,
     icon: '',

@@ -7,9 +7,9 @@ export const columns = [
         width: 70
     },
     {
-        title: '菜单名称',
-        key: 'name',
-        customSlot: 'name',
+        title: '菜单名称2',
+        key: 'title',
+        customSlot: 'title',
         width: 300
     },
     {
@@ -57,7 +57,7 @@ export const list = ref([]);
 export const updateMenu = ref({
     id: '',
     parentId: '',
-    name: '',
+    title: '',
     type: 1,
     sort: 0,
     icon: '',
@@ -79,7 +79,7 @@ export const schema = reactive({
             type: 'text',
         }
     },
-    name: {
+    title: {
         label: '菜单名称',
         type: 'input',
         props: {
