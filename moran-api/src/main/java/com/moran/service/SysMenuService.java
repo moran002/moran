@@ -30,7 +30,7 @@ public class  SysMenuService extends AbstractService<SysMenu, Integer, SysMenuMa
         ExampleWrapper<SysMenu, Integer> wrapper = baseMapper.wrapper();
         wrapper.orderByAsc(SysMenu::getSort);
         if (StringUtils.hasLength(name)) {
-            wrapper.contains(SysMenu::getName, name);
+            wrapper.contains(SysMenu::getTitle, name);
         }
         return wrapper.list();
     }

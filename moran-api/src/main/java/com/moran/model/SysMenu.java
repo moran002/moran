@@ -1,10 +1,9 @@
 package com.moran.model;
 
 import io.mybatis.provider.Entity;
-import org.apache.ibatis.type.JdbcType;
-
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.ibatis.type.JdbcType;
 
 import java.util.Date;
 
@@ -26,8 +25,8 @@ public class SysMenu {
   @Entity.Column(value = "icon", remark = "图标")
   private String icon;
 
-  @Entity.Column(value = "name", remark = "菜单名称")
-  private String name;
+  @Entity.Column(value = "title", remark = "菜单名称")
+  private String title;
 
   @Entity.Column(value = "path", remark = "路由地址")
   private String path;

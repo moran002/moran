@@ -24,7 +24,7 @@ public class MenuVO {
 
     private String icon;
 
-    private String name;
+    private String title;
 
     private String path;
 

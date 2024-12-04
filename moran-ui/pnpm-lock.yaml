@@ -8,12 +8,15 @@ importers:
 
   .:
     dependencies:
+      '@layui/icons-vue':
+        specifier: ^1.1.3
+        version: 1.1.3
       '@layui/json-schema-form':
         specifier: ^1.0.15
         version: 1.0.15
       '@layui/layui-vue':
-        specifier: 2.19.3
-        version: 2.19.3(rollup@3.23.0)(vue@3.3.4)
+        specifier: 2.21.0
+        version: 2.21.0(rollup@3.23.0)(vue@3.3.4)
       axios:
         specifier: ^1.5.1
         version: 1.5.1
@@ -288,11 +291,11 @@ packages:
   '@layui/json-schema-form@1.0.15':
     resolution: {integrity: sha512-zUEZuzcPmrByA6ddJCtfqNHaMzNwFUQl2Sr9vHRdfrrDOP77cZ1VT+f+7bg4O/HVviYsHArXanodMZaNGxdLZg==}
 
-  '@layui/layer-vue@2.4.5':
-    resolution: {integrity: sha512-n1DBzvVqBvgayFd6CrqU/u0Yup4TjTFK/H5DcD6G2glWK+Gr0/jpekmvwmtPjNo6/GTMJSlvhNe45xj0PiLZHA==}
+  '@layui/layer-vue@2.4.7':
+    resolution: {integrity: sha512-5lrsQ0v4ov7bHMGZ3StqAmIh9twvGDhAyWkQCoZN8ZaviXuLdvsztd6lvETpvLDtRC6TNwt0WgwWtBpLtW+vjw==}
 
-  '@layui/layui-vue@2.19.3':
-    resolution: {integrity: sha512-YkK9O2cDERXlO2pcHRgGkpFpwfV2J+wNZa5CS2OyKVtHKyxzk4/MJN8Zav6JX5x6K92Hw6RM1Hs9eG013LkQGA==}
+  '@layui/layui-vue@2.21.0':
+    resolution: {integrity: sha512-wS+j3cdbVja3MuBM6KCCxIQzsesxjjAaSGp+WcPZScYUgVR7MbbNf1Q4l3oqWS1PQtWFpDoYqm+WmcFU/+JLYQ==}
 
   '@layui/unplugin-vue-components@0.0.3':
     resolution: {integrity: sha512-s9TLwh9jRUb2ntEqsFy8yy+ZyQTlRx/FFCcP1sXIlxkvHYf4N5VrwcJV91eKCYRaufq8AO9+YMfeHvSh2kfhgw==}
@@ -1251,17 +1254,17 @@ snapshots:
 
   '@layui/json-schema-form@1.0.15': {}
 
-  '@layui/layer-vue@2.4.5':
+  '@layui/layer-vue@2.4.7':
     dependencies:
       '@layui/icons-vue': 1.1.3
 
-  '@layui/layui-vue@2.19.3(rollup@3.23.0)(vue@3.3.4)':
+  '@layui/layui-vue@2.21.0(rollup@3.23.0)(vue@3.3.4)':
     dependencies:
       '@babel/types': 7.21.0
       '@ctrl/tinycolor': 3.4.1
       '@floating-ui/dom': 1.6.5
       '@layui/icons-vue': 1.1.3
-      '@layui/layer-vue': 2.4.5
+      '@layui/layer-vue': 2.4.7
       '@rollup/plugin-terser': 0.4.4(rollup@3.23.0)
       '@types/qrcode': 1.5.0
       '@umijs/ssr-darkreader': 4.9.45

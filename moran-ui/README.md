@@ -37,8 +37,9 @@ nvm use 16.14.0
 安装依赖
 
 npm install -g pnpm
-
+npm install @layui/icons-vue
 pnpm install
+npm install @layui/json-schema-form --save
 
 启动项目
 

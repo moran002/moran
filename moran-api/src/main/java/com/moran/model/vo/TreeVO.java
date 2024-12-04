@@ -32,7 +32,7 @@ public class TreeVO {
 
     public static TreeVO convert(SysMenu m, List<SysMenu> menus) {
         TreeVO vo = new TreeVO();
-        vo.setTitle(m.getName());
+        vo.setTitle(m.getTitle());
         vo.setId(m.getId());
         vo.setIcon(m.getIcon());
         List<TreeVO> children = findChildren(m.getId(), menus);

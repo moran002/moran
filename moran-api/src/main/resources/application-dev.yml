@@ -16,7 +16,7 @@ spring:
       database: 0
       host: localhost
       port: 6379
-      password: heihei
+      password:
       jedis:
         pool:
           max-idle: 100

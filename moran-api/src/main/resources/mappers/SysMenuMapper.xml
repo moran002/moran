@@ -5,7 +5,7 @@
     <id property="id" column="id" jdbcType="INTEGER"/>
     <result property="parentId" column="parent_id" jdbcType="INTEGER"/><!-- 上级ID -->
     <result property="icon" column="icon" jdbcType="VARCHAR"/><!-- 图标 -->
-    <result property="name" column="name" jdbcType="VARCHAR"/><!-- 菜单名称 -->
+    <result property="title" column="title" jdbcType="VARCHAR"/><!-- 菜单名称 -->
     <result property="path" column="path" jdbcType="VARCHAR"/><!-- 路由地址 -->
     <result property="component" column="component" jdbcType="VARCHAR"/><!-- 组件路径 -->
     <result property="redirect" column="redirect" jdbcType="VARCHAR"/>
