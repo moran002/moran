@@ -29,6 +29,7 @@ public class RouterVO {
     public static RouterVO convert(SysMenu menu, List<SysMenu> menus) {
         RouterVO vo = new RouterVO();
         BeanUtils.copyProperties(menu, vo);
+        vo.setTitle(menu.getTitle());
         vo.setId(menu.getPath());
         List<RouterVO> children = findChildren(menu.getId(), menus);
         if (!CollectionUtils.isEmpty(children)) {
