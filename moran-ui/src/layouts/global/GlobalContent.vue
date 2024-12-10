@@ -2,7 +2,7 @@
   <div class="global-content" :class="{ 'has-tab': appStore.tab }">
     <router-view v-slot="{ Component }" v-if="appStore.routerAlive">
       <keep-alive :include="appStore.keepAliveList">
-        <component :is="Component" />
+        <component :is="Component" :key="route.fullPath"/>
       </keep-alive>
     </router-view>
   </div>
@@ -16,8 +16,10 @@ export default {
 
 <script lang="ts" setup>
 import { useAppStore } from '@/store/app'
+import {useRoute} from "vue-router";
 
-const appStore = useAppStore()
+const appStore = useAppStore();
+const route = useRoute();
 </script>
 
 <style scoped>
