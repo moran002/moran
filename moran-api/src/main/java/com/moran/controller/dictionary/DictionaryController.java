@@ -23,7 +23,6 @@ import java.util.stream.Collectors;
 /**
  * 字典管理
  * @author : moran
- * @date : 2024/3/8 16:45
  */
 @RestController
 @RequestMapping("/dictionary")
@@ -36,7 +35,6 @@ public class DictionaryController extends Controller{
     /**
      * 获取菜单
      * @author :moran
-     * @date :2024/3/26 10:11
      **/
     @GetMapping("/menus")
     public ResponseBean<List<TreeVO>> getMenus() {
@@ -50,7 +48,6 @@ public class DictionaryController extends Controller{
     /**
      * 角色列表
      * @author :moran
-     * @date :2024/3/12 10:54
      **/
     @GetMapping("/roles")
     public ResponseBean<List<OptionVO>> roles() {
@@ -61,7 +58,6 @@ public class DictionaryController extends Controller{
     /**
      * 获取用户菜单
      * @author :moran
-     * @date :2024/3/8 16:47
      **/
     @GetMapping("/routers")
     public ResponseBean<List<RouterVO>> routers() {
@@ -76,7 +72,6 @@ public class DictionaryController extends Controller{
     /**
      * 权限
      * @author :moran
-     * @date :2024/3/25 14:34
      **/
     @GetMapping("/permissions")
     public ResponseBean<List<String>> permissions() {
@@ -86,10 +81,9 @@ public class DictionaryController extends Controller{
     /**
      * 登出
      * @author :moran
-     * @date :2024/3/8 17:27
      **/
     @PostMapping("/logout")
-    public ResponseBean logout() {
+    public ResponseBean<Boolean> logout() {
         StpUtil.logout();
         return ResponseBean.ok();
     }

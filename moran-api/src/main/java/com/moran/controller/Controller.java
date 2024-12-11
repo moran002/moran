@@ -13,7 +13,6 @@ import java.util.Objects;
 
 /**
  * @author : moran
- * @date : 2023/3/7 10:17
  */
 public class Controller {
 
@@ -27,7 +26,6 @@ public class Controller {
     /**
      * 获取request
      * @author :moran
-     * @date :2022/11/14 16:02
      **/
     public HttpServletRequest getRequest() {
         return ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
@@ -36,7 +34,6 @@ public class Controller {
     /**
      * 获取response
      * @author :moran
-     * @date :2022/11/14 16:03
      **/
     public HttpServletResponse getResponse() {
         return ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getResponse();
@@ -45,7 +42,6 @@ public class Controller {
     /**
      * 获取用户设备信息
      * @author :moran
-     * @date :2024/3/25 17:28
      **/
     public String getDeviceInfo() {
         return getRequest().getHeader("User-Agent");

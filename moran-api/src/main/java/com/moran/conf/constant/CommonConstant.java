@@ -1,8 +1,7 @@
 package com.moran.conf.constant;
 
 /**
- * @author 刘云
- * @date 2021/7/14
+ * @author moran
  * 项目通用常量池
  **/
 public final class CommonConstant {

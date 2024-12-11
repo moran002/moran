@@ -4,7 +4,6 @@ import jakarta.servlet.http.HttpServletRequest;
 
 /**
  * @author : moran
- * @date : 2022/7/12 11:22
  */
 public class RequestUtil {
 
@@ -45,7 +44,6 @@ public class RequestUtil {
     /**
      * 获取设备地址
      * @author :moran
-     * @date :2024/3/27 15:25
      **/
     public static String getDeviceName(HttpServletRequest request) {
         String userAgent = request.getHeader("User-Agent");

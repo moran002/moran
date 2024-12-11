@@ -16,11 +16,7 @@ import com.wf.captcha.SpecCaptcha;
 import lombok.AllArgsConstructor;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.awt.*;
 import java.io.IOException;
@@ -30,7 +26,6 @@ import java.util.Optional;
 /**
  * 登录管理
  * @author : moran
- * @date : 2024/3/21 9:53
  */
 @RestController
 @RequestMapping("/auth")
@@ -43,7 +38,6 @@ public class AuthController {
     /**
      * 登陆
      * @author :moran
-     * @date :2024/3/22 11:16
      **/
     @PostMapping("/login")
     public ResponseBean<String> login(@RequestBody LoginDTO dto) {
@@ -75,7 +69,6 @@ public class AuthController {
     /**
      * 获取验证码
      * @author :moran
-     * @date :2024/3/21 9:54
      **/
     @GetMapping("/captcha")
     public ResponseBean<CaptChaVO> captcha() {

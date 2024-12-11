@@ -7,9 +7,7 @@ import java.security.SecureRandom;
 import java.util.function.BiPredicate;
 
 /**
- * @ClassName MD5Util
- * @Author 刘云
- * @Date 2020/9/21 11:07
+ * @author moran
  */
 public class MD5Util {
 

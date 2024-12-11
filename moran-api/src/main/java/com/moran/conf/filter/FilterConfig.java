@@ -10,7 +10,6 @@ import java.util.List;
 /**
  * 开放url配置
  * @author :moran
- * @date :2023/8/29 15:39
  **/
 @Data
 @EqualsAndHashCode(callSuper = false)

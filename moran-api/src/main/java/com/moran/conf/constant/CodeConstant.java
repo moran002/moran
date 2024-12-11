@@ -5,7 +5,6 @@ package com.moran.conf.constant;
  * 返回值常量池
  *
  * @author moran
- * @date 2022/07/18
  */
 public final class CodeConstant {
     private CodeConstant() {

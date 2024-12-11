@@ -7,11 +7,7 @@ import com.moran.model.dto.system.UserDTO;
 import com.moran.model.vo.system.UserVO;
 import com.moran.service.SysUserService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,7 +15,6 @@ import java.util.stream.Collectors;
 /**
  * 用户管理
  * @author : moran
- * @date : 2024/3/22 16:48
  */
 @RestController
 @RequestMapping("/system/user")
@@ -30,7 +25,6 @@ public class UserController extends Controller {
     /**
      * 修改密码
      * @author :moran
-     * @date :2024/3/25 17:03
      **/
     @PostMapping("/password")
     public ResponseBean<Object> password(@RequestBody UserDTO dto) {
@@ -41,7 +35,6 @@ public class UserController extends Controller {
     /**
      * 状态
      * @author :moran
-     * @date :2024/3/25 15:33
      **/
     @PostMapping("/status")
     public ResponseBean<Object> status(@RequestBody UserDTO dto) {
@@ -52,7 +45,6 @@ public class UserController extends Controller {
     /**
      * 移除
      * @author :moran
-     * @date :2024/3/25 13:08
      **/
     @PostMapping("/del")
     public ResponseBean<Object> delUser(@RequestBody UserDTO dto) {
@@ -67,10 +59,9 @@ public class UserController extends Controller {
     /**
      * 编辑
      * @author :moran
-     * @date :2024/3/25 13:08
      **/
     @PostMapping("/update")
-    public ResponseBean updateUser(@RequestBody UserDTO dto) {
+    public ResponseBean<Boolean> updateUser(@RequestBody UserDTO dto) {
         userService.updateUser(dto);
         return ResponseBean.ok();
     }
@@ -78,7 +69,6 @@ public class UserController extends Controller {
     /**
      * 列表
      * @author :moran
-     * @date :2024/3/22 16:48
      **/
     @GetMapping("/list")
     public ResponseBean<List<UserVO>> list(String account, String nickName) {

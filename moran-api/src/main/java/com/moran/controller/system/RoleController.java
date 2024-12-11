@@ -8,11 +8,7 @@ import com.moran.model.vo.system.RoleVO;
 import com.moran.service.SysMenuService;
 import com.moran.service.SysRoleService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Set;
@@ -21,7 +17,6 @@ import java.util.stream.Collectors;
 /**
  * 角色管理
  * @author : moran
- * @date : 2024/3/26 9:27
  */
 @RestController
 @RequestMapping("/system/role")
@@ -33,7 +28,6 @@ public class RoleController extends Controller {
     /**
      * 分配菜单
      * @author :moran
-     * @date :2024/3/26 9:36
      **/
     @PostMapping("/menus")
     public ResponseBean<Object> menus(@RequestBody RoleDTO dto) {
@@ -45,7 +39,6 @@ public class RoleController extends Controller {
     /**
      * 删除
      * @author :moran
-     * @date :2024/3/26 9:35
      **/
     @PostMapping("/del")
     public ResponseBean<Object> del(@RequestBody RoleDTO dto) {
@@ -60,7 +53,6 @@ public class RoleController extends Controller {
     /**
      * 编辑
      * @author :moran
-     * @date :2024/3/26 9:34
      **/
     @PostMapping("/update")
     public ResponseBean<Object> update(@RequestBody RoleDTO dto) {
@@ -71,7 +63,6 @@ public class RoleController extends Controller {
     /**
      * 列表
      * @author :moran
-     * @date :2024/3/26 9:34
      **/
     @GetMapping("/list")
     public ResponseBean<List<RoleVO>> list(String roleName, String remark) {

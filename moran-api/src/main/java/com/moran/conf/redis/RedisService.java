@@ -12,8 +12,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author : 刘云
- * @date : 2022/3/10 17:11
+ * @author : moran
  * 过期时间: 不指定时间时过期时间为-1 永不过期, 传入过期时间则时间单位为秒
  * 基础类型值加入泛型返回值, 用户需明确知道返回类型
  */
@@ -28,7 +27,6 @@ public final class RedisService {
      * 指定缓存失效时间
      * @param time 时间单位为分钟
      * @author moran
-     * @date 2022/3/10 17:13
      **/
     public void expire(String key, long time) {
         try {
@@ -43,7 +41,6 @@ public final class RedisService {
     /**
      * 根据key获取过期时间
      * @author moran
-     * @date 2022/3/10 17:21
      * @return 当返回值为-2时代表当前key不存在, -1 代表永不过期, 其他: x分钟后失效
      **/
     public long getExpire(String key) {
@@ -54,7 +51,6 @@ public final class RedisService {
     /**
      * 判断key是否存在
      * @author moran
-     * @date 2022/3/10 17:26
      **/
     public boolean hasKey(String key) {
         try {
@@ -70,7 +66,6 @@ public final class RedisService {
      * 移除缓存
      * @param key 可传入单个或多个key
      * @author moran
-     * @date 2022/3/10 17:44
      **/
     @SuppressWarnings("unchecked")
     public void delete(String... key) {
@@ -86,7 +81,6 @@ public final class RedisService {
     /**
      * 模糊移除缓存, 通配右侧例: 移除带有token_的全部可以 只需要传入token_即可
      * @author moran
-     * @date 2022/3/11 10:42
      **/
     public void  deleteByLikeKey(String key) {
         if (key== null || "".equals(key.trim())) {
@@ -100,7 +94,6 @@ public final class RedisService {
     /**
      * 清空缓存
      * @author moran
-     * @date 2022/3/11 10:47
      **/
     public void deleteAll() {
         Set<String> keys = redisTemplate.keys("*");
@@ -112,7 +105,6 @@ public final class RedisService {
     /**
      * 获取值
      * @author moran
-     * @date 2022/3/10 17:55
      * 返回泛型, 可选择返回Object 也可选择指定类型<>String,int,double等</> 需明确知道具体类型
      **/
     @SuppressWarnings("unchecked")
@@ -123,7 +115,6 @@ public final class RedisService {
     /**
      * 获取redis中模糊的key值集合
      * @author :moran
-     * @date :2023/8/4 18:17
      **/
     public Set<String> getKeys(String key) {
         return redisTemplate.keys(key.concat("*"));
@@ -132,7 +123,6 @@ public final class RedisService {
     /**
      * 设置键值
      * @author moran
-     * @date 2022/3/10 17:56
      **/
     public boolean set(String key, Object value) {
         try {
@@ -147,7 +137,6 @@ public final class RedisService {
     /**
      * 设置键值并指定过期时间, 当指定时间小于等于0时调用设置键值方法
      * @author moran
-     * @date 2022/3/11 8:53
      *
      **/
     public boolean set(String key, Object value, long time) {
@@ -167,7 +156,6 @@ public final class RedisService {
     /**
      * 键值递增
      * @author :moran
-     * @date :2023/9/25 13:42
      **/
     public long increment(String key) {
         Long increment = redisTemplate.opsForValue().increment(key);
@@ -180,7 +168,6 @@ public final class RedisService {
     /**
      * 指定值增长数
      * @author moran
-     * @date 2022/3/11 8:57
      **/
     public long increment(String key, long delta) {
         if (delta < 0) {
@@ -193,7 +180,6 @@ public final class RedisService {
     /**
      * 键值递减
      * @author :moran
-     * @date :2023/9/25 13:40
      **/
     public long deIncrement(String key) {
         Long decrement = redisTemplate.opsForValue().decrement(key);
@@ -206,7 +192,6 @@ public final class RedisService {
     /**
      * 指定递减数
      * @author :moran
-     * @date :2023/9/25 13:42
      **/
     public long deIncrement(String key, long delta) {
         if (delta < 0) {

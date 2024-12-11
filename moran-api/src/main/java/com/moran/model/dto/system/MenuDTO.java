@@ -8,7 +8,6 @@ import org.springframework.beans.BeanUtils;
 /**
  * 菜单入参
  * @author : moran
- * @date : 2024/3/26 13:37
  */
 @Setter
 @Getter

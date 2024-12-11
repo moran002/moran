@@ -6,7 +6,6 @@ import lombok.Setter;
 /**
  * 验证码
  * @author : moran
- * @date : 2023/11/8 15:20
  */
 @Getter
 @Setter

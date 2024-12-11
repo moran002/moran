@@ -13,7 +13,6 @@ import java.util.Objects;
  * 操作消息提醒
  *
  * @author moran
- * @date 2022/07/18
  */
 public class RestResult extends HashMap<String, Object> {
 

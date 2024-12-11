@@ -1,20 +1,14 @@
 package com.moran.conf.redis;
 
-import cn.hutool.json.JSONUtil;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.jsontype.impl.LaissezFaireSubTypeValidator;
-import jakarta.annotation.Resource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.redis.connection.Message;
-import org.springframework.data.redis.connection.MessageListener;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.listener.PatternTopic;
-import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
@@ -23,7 +17,6 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  * 复述,配置
  *
  * @author : moran
- * @date : 2022/07/18
  */
 @Configuration
 public class RedisConfig {
@@ -31,7 +24,6 @@ public class RedisConfig {
     /**
      * redis 配置
      * @author :moran
-     * @date :2023/10/27 15:31
      **/
     @Bean
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {

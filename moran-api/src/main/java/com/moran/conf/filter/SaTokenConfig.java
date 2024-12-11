@@ -12,7 +12,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 /**
  * 路由拦截鉴权
  * @author :moran
- * @date :2023/8/29 15:43
  **/
 @Configuration
 public class SaTokenConfig implements WebMvcConfigurer {

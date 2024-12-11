@@ -11,7 +11,6 @@ import org.springframework.web.filter.CorsFilter;
  * 实现基本跨域请求
  *
  * @author : moran
- * @date : 2022/07/18
  */
 @Configuration
 public class CorsConfig {

@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.sql.SQLException;
 
 /**
- * @author : 刘云
- * @date : 2021/7/14
+ * @author : moran
  * 捕捉全局异常并统一处理
  **/
 @Slf4j
