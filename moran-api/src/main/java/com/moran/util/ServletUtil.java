@@ -1,9 +1,8 @@
-package com.moran.controller;
+package com.moran.util;
 
 import cn.dev33.satoken.stp.StpUtil;
 import com.moran.conf.constant.CommonConstant;
 import com.moran.model.vo.UserInfo;
-import com.moran.util.PageUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -14,12 +13,11 @@ import java.util.Objects;
 /**
  * @author : moran
  */
-public class Controller {
-
+public class ServletUtil {
     /**
      * 开启分页
      */
-    public void startPage() {
+    public static void startPage() {
         PageUtil.startPage();
     }
 
@@ -27,7 +25,7 @@ public class Controller {
      * 获取request
      * @author :moran
      **/
-    public HttpServletRequest getRequest() {
+    public static HttpServletRequest getRequest() {
         return ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
     }
 
@@ -35,7 +33,7 @@ public class Controller {
      * 获取response
      * @author :moran
      **/
-    public HttpServletResponse getResponse() {
+    public static HttpServletResponse getResponse() {
         return ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getResponse();
     }
 
@@ -43,20 +41,20 @@ public class Controller {
      * 获取用户设备信息
      * @author :moran
      **/
-    public String getDeviceInfo() {
+    public static String getDeviceInfo() {
         return getRequest().getHeader("User-Agent");
     }
 
     /**
      * 获取用户ID
      */
-    public UserInfo getUserInfo() {
+    public static UserInfo getUserInfo() {
         return (UserInfo) StpUtil.getSession().get(CommonConstant.USER_INFO);
     }
     /**
      * 获取用户ID
      */
-    public Integer getUserId() {
+    public static Integer getUserId() {
         return getUserInfo().getUserId();
     }
 }

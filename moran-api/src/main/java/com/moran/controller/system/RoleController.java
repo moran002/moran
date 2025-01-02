@@ -1,14 +1,18 @@
 package com.moran.controller.system;
 
 import com.moran.conf.bean.ResponseBean;
-import com.moran.controller.Controller;
 import com.moran.model.SysRole;
 import com.moran.model.dto.system.RoleDTO;
 import com.moran.model.vo.system.RoleVO;
 import com.moran.service.SysMenuService;
 import com.moran.service.SysRoleService;
+import com.moran.util.ServletUtil;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Set;
@@ -21,7 +25,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/system/role")
 @AllArgsConstructor
-public class RoleController extends Controller {
+public class RoleController {
     private final SysRoleService sysRoleService;
     private final SysMenuService sysMenuService;
 
@@ -66,7 +70,7 @@ public class RoleController extends Controller {
      **/
     @GetMapping("/list")
     public ResponseBean<List<RoleVO>> list(String roleName, String remark) {
-        startPage();
+        ServletUtil.startPage();
         List<SysRole> list = sysRoleService.list(roleName, remark);
         return ResponseBean.ok(list, list.stream().map(RoleVO::convert).collect(Collectors.toList()));
     }

@@ -1,13 +1,16 @@
 package com.moran.controller.system;
 
 import com.moran.conf.bean.ResponseBean;
-import com.moran.controller.Controller;
 import com.moran.model.SysMenu;
 import com.moran.model.dto.system.MenuDTO;
 import com.moran.model.vo.system.MenuVO;
 import com.moran.service.SysMenuService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,7 +22,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/system/menu")
 @AllArgsConstructor
-public class MenuController extends Controller {
+public class MenuController {
     private final SysMenuService sysMenuService;
 
     /**
