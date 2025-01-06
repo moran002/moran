@@ -29,16 +29,3 @@ spring:
       write_dates_as_timestamps: false
     time-zone: GMT+8
     default-property-inclusion: non_null
-sa-token:
-  token-name: Authorization
-  timeout: 2592000
-  active-timeout: 2592000
-  is-concurrent: true
-  is-share: false
-  token-style: random-128
-  is-log: false
-  is-print: false
-  token-prefix: Bearer
-filter:
-  logins:
-    - /dictionary/**

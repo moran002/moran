@@ -12,7 +12,7 @@
     <artifactId>moran-api</artifactId>
     <version>1.0.0</version>
     <name>api</name>
-    <description>一个springboot3项目</description>
+    <description>一个只有api的项目</description>
 
     <properties>
         <java.version>17</java.version>
@@ -41,25 +41,6 @@
             <artifactId>hutool-json</artifactId>
             <version>${hutool-version}</version>
         </dependency>
-        <!--Sa-Token-->
-        <!-- Sa-Token 权限认证, 在线文档：https://sa-token.cc/ -->
-        <dependency>
-            <groupId>cn.dev33</groupId>
-            <artifactId>sa-token-spring-boot3-starter</artifactId>
-            <version>${sa-token.version}</version>
-        </dependency>
-
-        <!-- Sa-Token整合 Redis (使用jackson序列化方式) -->
-        <dependency>
-            <groupId>cn.dev33</groupId>
-            <artifactId>sa-token-redis-jackson</artifactId>
-            <version>${sa-token.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-pool2</artifactId>
-        </dependency>
-        <!--Sa-Token-->
 
         <!--spring-boot-->
         <dependency>
