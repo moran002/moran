@@ -20,19 +20,19 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(value = RuntimeException.class)
     public RestResult defaultErrorHandler(Exception e) {
-        e.printStackTrace();
+        log.error("<!--------默认错误信息:{}------------!>", e.getMessage());
         return RestResult.error(e.getMessage());
     }
 
     @ExceptionHandler(Exception.class)
     public RestResult handleException(Exception e) {
-        e.printStackTrace();
+        log.error("<!--------异常信息:{}------------!>", e.getMessage());
         return RestResult.error(e.getMessage());
     }
 
     @ExceptionHandler(BindException.class)
     public RestResult handleBindException(BindException e) {
-        e.printStackTrace();
+        log.error("<!--------BindException:{}------------!>", e.getAllErrors());
         String message = e.getAllErrors().get(0).getDefaultMessage();
         return RestResult.error(message);
     }
