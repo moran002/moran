@@ -1,8 +1,5 @@
 package com.moran.util;
 
-import cn.dev33.satoken.stp.StpUtil;
-import com.moran.conf.constant.CommonConstant;
-import com.moran.model.vo.UserInfo;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -43,18 +40,5 @@ public class ServletUtil {
      **/
     public static String getDeviceInfo() {
         return getRequest().getHeader("User-Agent");
-    }
-
-    /**
-     * 获取用户ID
-     */
-    public static UserInfo getUserInfo() {
-        return (UserInfo) StpUtil.getSession().get(CommonConstant.USER_INFO);
-    }
-    /**
-     * 获取用户ID
-     */
-    public static Integer getUserId() {
-        return getUserInfo().getUserId();
     }
 }

@@ -1,6 +1,5 @@
 package com.moran.conf.exception;
 
-import cn.dev33.satoken.exception.SaTokenException;
 import com.moran.conf.bean.RestResult;
 import com.moran.conf.constant.CodeConstant;
 import lombok.extern.slf4j.Slf4j;
@@ -45,10 +44,5 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = ServiceException.class)
     public RestResult serviceException(ServiceException e) {
         return RestResult.error(CodeConstant.SERVICE_ERROR, e.getMessage());
-    }
-    @ExceptionHandler(value = SaTokenException.class)
-    public RestResult saTokenException(SaTokenException e) {
-        log.error("<!---- SaTokenException:{} ----!>", e.getMessage());
-        return RestResult.error(CodeConstant.LOGIN_FAIL,e.getMessage());
     }
 }

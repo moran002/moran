@@ -27,9 +27,37 @@
         <sa-token.version>1.39.0</sa-token.version>
         <data.version>3.4.0</data.version>
         <hutool-version>5.8.25</hutool-version>
+
+        <itextpdf.version>9.1.0</itextpdf.version>
+        <itextpdfhtml.version>6.1.0</itextpdfhtml.version>
     </properties>
 
     <dependencies>
+        <!-- pdf -->
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>kernel</artifactId>
+            <version>${itextpdf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>forms</artifactId>
+            <version>${itextpdf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>html2pdf</artifactId>
+            <version>${itextpdfhtml.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.itextpdf.tool/xmlworker -->
+        <dependency>
+            <groupId>com.itextpdf.tool</groupId>
+            <artifactId>xmlworker</artifactId>
+            <version>5.5.13.4</version>
+        </dependency>
+
+
+
 
         <dependency>
             <groupId>cn.hutool</groupId>
