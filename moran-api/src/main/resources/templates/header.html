@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF</title>
+</head>
+<style>
+  /* 如果打印出样式左右空白过多,可以去掉.main的宽度限制 */
+  /* 公共样式 */
+  h2, h3, p, span, div, img, ul, li {
+    margin: 0;
+  }
+  li {
+    list-style: none;
+  }
+  .theme-color{
+    color: 449297;
+  }
+  .flex {
+    display: flex;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+  }
+  .item-center {
+    display: flex;
+    align-items: center;
+  }
+  .justify-between {
+    display: flex;
+    justify-content: space-between;
+  }
+  .strong {
+    font-weight: bold;
+  }
+  .large-text {
+    font-size: 20px;
+  }
+  .normal-text{
+    font-size: 16px;
+  }
+  .small-text {
+    font-size: 14px;
+  }
+  .mini-text {
+    font-size: 12px;
+  }
+  .p-20px{
+    padding: 20px;
+  }
+  .pl-10px {
+    padding-left: 10px;
+  }
+  .mb-10px {
+    margin-bottom: 10px;
+  }
+  .mb-20px {
+    margin-bottom: 20px;
+  }
+  .mt-10px {
+    margin-top: 10px;
+  }
+  .mt-20px {
+    margin-top: 20px;
+  }
+  .mx-10px {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .w-50{
+    width: 50%;
+  }
+  .line {
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    margin: 20px 0;
+  }
+  .label-width {
+    width: 140px;
+  }
+  .border-radius {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+
+  /* 页面样式 */
+  .main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 30px;
+    /* border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+  }
+  .logo {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  .header-img{
+    width: 100%;
+    height: 40px;
+    object-fit: cover;
+  }
+  .invoice-box{
+    width: 200px;
+  }
+  .invoice-box P {
+    margin-bottom: 6px;
+  }
+  .car-header{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  .steps-box{
+    margin-top: 20px;
+  }
+  .step{
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  .steps-box :first-child .step-icon .top-dash{
+    width: 0;
+    border: none;    
+  }
+  .steps-box :last-child .step-icon .bottom-dash{
+    width: 0;
+    border: none;    
+  }
+  .steps-box :last-child .step-icon i{
+    position: relative;
+    width: 6px;
+    height: 6px;
+    border-width: 4px;
+  }
+  .steps-box :last-child .step-icon i::after{
+    content: '';
+    /* 三角形 */
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #449297;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .steps-box :last-child .step-info {
+    border-bottom: none;
+  }
+  .step-icon{
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .step-icon i{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 3px solid #449297;
+  }
+  .step-dash{
+    width: 0;
+    height: 20px;
+    border: 1px dashed #449297;
+    margin: 1px 0;
+  }
+  .step-info{
+    border-bottom: 1px dashed #449297;
+    padding-bottom: 6px;
+    flex: 1;
+  }
+  .step-info p{
+    margin: 3px 0;
+  }
+  .car-img{
+    display: flex;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  .car-img img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+  }
+  .inventory-img{
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+  }
+  .system-tip{
+    font-size: 14px;
+    text-align: center;
+    display: block;
+    margin: 50px 0;
+  }
+  .term-box p{
+    margin: 5px 0;
+  }
+  .li-label-width{
+    width: 100px;
+  }
+  .li-box{
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  /* 手动添加li 前边的小圆点 */
+  .li-box::before{
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #000;
+    margin-right: 10px;
+  }
+
+</style>
+<body>
+  <div class="main">
+    <div class="justify-between mb-10px">
+      <!-- logo、标题、联系方式 -->
+      <div class="flex">
+        <img th:src="${data.invoiceLogo}" class="logo" alt="">
+        <div class="column">
+          <h2>24 HOUR RECOVERY SERVICES</h2>
+          <h3>24 HRS HOTLINE: 8455 5669</h3>
+        </div>
+      </div>
+      <!-- 发票信息 -->
+      <div class="column invoice-box">
+        <p class="strong normal-text">Invoice</p>
+        <div class="justify-between">
+          <p class="mini-text">Invoice No:</p>
+          <p class="mini-text" th:text="${data.invoiceSn}">empty</p>
+        </div>
+        <div class="justify-between">
+          <p class="mini-text">Credit Terms:</p>
+          <p class="mini-text" th:text="${data.terms}">empty</p>
+        </div>
+        <div class="justify-between">
+          <p class="mini-text">Page No:</p>
+          <p class="mini-text" th:text="${page}">1/1</p>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

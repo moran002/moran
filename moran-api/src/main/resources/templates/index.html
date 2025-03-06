@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF</title>
+</head>
+<style>
+  /* 如果打印出样式左右空白过多,可以去掉.main的宽度限制 */
+  /* 公共样式 */
+  h2, h3, p, span, div, img, ul, li {
+    margin: 0;
+  }
+  li {
+    list-style: none;
+  }
+  .theme-color{
+    color: 449297;
+  }
+  .flex {
+    display: flex;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+  }
+  .item-center {
+    display: flex;
+    align-items: center;
+  }
+  .justify-between {
+    display: flex;
+    justify-content: space-between;
+  }
+  .strong {
+    font-weight: bold;
+  }
+  .large-text {
+    font-size: 20px;
+  }
+  .normal-text{
+    font-size: 16px;
+  }
+  .small-text {
+    font-size: 14px;
+  }
+  .mini-text {
+    font-size: 12px;
+  }
+  .p-20px{
+    padding: 20px;
+  }
+  .pl-10px {
+    padding-left: 10px;
+  }
+  .mb-10px {
+    margin-bottom: 10px;
+  }
+  .mb-20px {
+    margin-bottom: 20px;
+  }
+  .mt-10px {
+    margin-top: 10px;
+  }
+  .mt-20px {
+    margin-top: 20px;
+  }
+  .mx-10px {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .w-50{
+    width: 50%;
+  }
+  .line {
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    margin: 20px 0;
+  }
+  .label-width {
+    width: 140px;
+  }
+  .border-radius {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+
+  /* 页面样式 */
+  .main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 30px;
+    /* border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+  }
+  .logo {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  .header-img{
+    width: 100%;
+    height: 40px;
+    object-fit: cover;
+  }
+  .invoice-box{
+    width: 200px;
+  }
+  .invoice-box P {
+    margin-bottom: 6px;
+  }
+  .car-header{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  .steps-box{
+    margin-top: 20px;
+  }
+  .step{
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  .steps-box :first-child .step-icon .top-dash{
+    width: 0;
+    border: none;    
+  }
+  .steps-box :last-child .step-icon .bottom-dash{
+    width: 0;
+    border: none;    
+  }
+  .steps-box :last-child .step-icon i{
+    position: relative;
+    width: 6px;
+    height: 6px;
+    border-width: 4px;
+  }
+  .steps-box :last-child .step-icon i::after{
+    content: '';
+    /* 三角形 */
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #449297;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .steps-box :last-child .step-info {
+    border-bottom: none;
+  }
+  .step-icon{
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .step-icon i{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 3px solid #449297;
+  }
+  .step-dash{
+    width: 0;
+    height: 20px;
+    border: 1px dashed #449297;
+    margin: 1px 0;
+  }
+  .step-info{
+    border-bottom: 1px dashed #449297;
+    padding-bottom: 6px;
+    flex: 1;
+  }
+  .step-info p{
+    margin: 3px 0;
+  }
+  .car-img{
+    display: flex;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  .car-img img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+  }
+  .inventory-img{
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+  }
+  .system-tip{
+    font-size: 14px;
+    text-align: center;
+    display: block;
+    margin: 50px 0;
+  }
+  .term-box p{
+    margin: 5px 0;
+  }
+  .li-label-width{
+    width: 100px;
+  }
+  .li-box{
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  /* 手动添加li 前边的小圆点 */
+  .li-box::before{
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #000;
+    margin-right: 10px;
+  }
+
+</style>
+<body>
+  <div class="main">
+    <!-- 联系方式与地址 -->
+    <p class="mini-text strong mt-10px" th:text="${data.companyPhone}">COMPANY REGISTRATION NUMBER:EMPTY</p>
+    <p class="mini-text mt-10px" th:text="${data.companyAddress}">COMPANY ADDRESS: EMPTY</p>
+    <div class="line"></div>
+    <!-- 客户信息 -->
+    <div class="justify-between">
+      <div class="w-50">
+        <div class="small-text mb-10px flex">
+          <p class="label-width">Customer Name :</p>
+          <p class="strong" th:text="${data.memberName}">Folsom Bill</p>
+        </div>
+        <div class="small-text mb-10px flex">
+          <p class="label-width">Customer Mobile :</p>
+          <p class="strong" th:text="${data.memberPhone}">Folsom Bill</p>
+        </div>
+        <div class="small-text mb-10px flex">
+          <p class="label-width">Order Sn :</p>
+          <p class="strong" th:text="${data.orderSn}">123456789</p>
+        </div>
+      </div>
+      <div class="w-50">
+        <div class="small-text mb-10px flex">
+          <p class="label-width">Start Date :</p>
+          <p class="strong" th:text="${data.issueTime}">Mar 24, 2023 15:56</p>
+        </div>
+        <div class="small-text mb-10px flex">
+          <p class="label-width">End Date :</p>
+          <p class="strong" th:text="${data.dueTime}">Mar 24, 2023 15:56</p>
+        </div>
+        <div class="small-text mb-10px flex">
+          <p class="label-width">Raised By :</p>
+          <p class="strong" th:text="${data.raisedBy}">Mar 24, 2023 15:56</p>
+        </div>
+      </div>
+    </div>
+    <div class="line"></div>
+    <div class="border-radius p-20px mb-20px">
+      <!-- 车辆信息 -->
+      <div class="item-center mb-10px">
+        <p class="mx-10px normal-text strong">SUV1234W</p>
+        <P class="small-text">Audi A8</P>
+      </div>
+      <!-- 距离与时间 -->
+      <div class="justify-between mini-text">
+        <p>Tow Location</p>
+        <p>
+          <span>4.5km</span>
+          <span>45 mins</span>
+        </p>
+      </div>
+      <!-- 步骤条 -->
+      <div class="steps-box">
+        <!-- 每一个步骤一个step -->
+        <div class="step">
+          <div class="step-icon">
+            <div class="step-dash top-dash"></div>
+            <i></i>
+            <div class="step-dash bottom-dash"></div>
+          </div>
+          <div class="mini-text column step-info">
+            <p class="strong">Rescue Point</p>
+            <p>5967 Torphy Forks</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-icon">
+            <div class="step-dash top-dash"></div>
+            <i></i>
+            <div class="step-dash bottom-dash"></div>
+          </div>
+          <div class="mini-text column step-info">
+            <p class="strong">Workshop Location</p>
+            <p>187 Goldie Lane</p>
+          </div>
+        </div>
+      </div>
+      <div class="line"></div>
+      <div class="mini-text">
+        <p class="strong">Description</p>
+        <p>Mly tyre has burst, please send me a tyre</p>
+        <div class="car-img">
+          <img src="C:\Users\12805\Desktop\invoice-pdf\img\pic.png" alt="">
+          <img src="C:\Users\12805\Desktop\invoice-pdf\img\pic.png" alt="">
+        </div>
+      </div>
+    </div>
+    <!-- 库存信息 -->
+    <div class="border-radius p-20px">
+      <table>
+        <thead>
+        <tr>
+          <th>S/N</th>
+          <th>Category</th>
+          <th>Description</th>
+          <th>Quantity</th>
+          <th>unit Amount</th>
+          <th>Amount</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="item, itemStart : ${data.items}" >
+          <td th:text="${itemStart.count + 1}"></td>
+          <td th:text="${item.category}"></td>
+          <td th:text="${item.description}"></td>
+          <td th:text="${item.quantity}"></td>
+          <td th:text="${item.unitAmount}"></td>
+          <td th:text="${item.amount}"></td>
+          <td th:text="${item.quantity}"></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="mt-20px">
+      <div class="small-text strong justify-between mb-10px">
+        <p>Sub Total</p>
+        <p th:text="${data.subTotal}">$ 0</p>
+      </div>
+      <div class="small-text justify-between mb-10px">
+        <p>Less Discount (-)</p>
+        <p th:text="${data.discountPrice}">-$ 0</p>
+      </div>
+      <div class="small-text justify-between mb-10px">
+        <p>Add Tax (+)</p>
+        <p th:text="${data.taxPrice}">$ 0</p>
+      </div>
+    </div>
+    <div class="line"></div>
+    <div class="small-text strong justify-between mb-10px">
+      <p>Total Cost</p>
+      <p th:text="${data.totalAmount}">$ 0</p>
+    </div>
+    <!-- 系统发票提示 -->
+    <p class="system-tip">This is system generated invoice.</p>
+    <div class="small-text term-box">
+      <p class="strong">Terms & Conditions</p>
+      <p>Please send payment <span class="theme-color">with in 15 days</span> from <span class="theme-color">the date of invoice.</span></p>
+      <p class="strong mt-10px">Payment Method</p>
+      <p>i. Cheque issue in favor to " <span class="strong">24 HOUR RECOVERY SERVICES</span> "</p>
+      <p>ii. Fund Transfer to</p>
+      <ul class="pl-10px">
+        <li class="li-box">
+          <p class="li-label-width">Bank Name : </p>
+          <p>Oversea-Chinese Banking Corporation Limited</p>
+        </li>
+        <li class="li-box">
+          <p class="li-label-width">Bank Code : </p>
+          <p>7339</p>
+        </li>
+        <li class="li-box">
+          <p class="li-label-width">Branch Code : </p>
+          <p>623</p>
+        </li>
+        <li class="li-box">
+          <p class="li-label-width">Swift Code : </p>
+          <p>OCBCSGSG</p>
+        </li>
+      </ul>
+      <p class="strong">Bank Account No:623-278215-001</p>
+      <p>iii. PayNOW UEN No: 53333929D</p>
+      <p class="strong mb-20px">Please indicate our invoice number when making payment, thank you.</p>
+    </div>
+  </div>
+</body>
+</html>
