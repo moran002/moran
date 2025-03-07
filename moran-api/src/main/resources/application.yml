@@ -29,3 +29,11 @@ spring:
       write_dates_as_timestamps: false
     time-zone: GMT+8
     default-property-inclusion: non_null
+wechat:
+  cp:
+    corpId: ww7cab60eed263f4ad
+    appConfigs:
+      - agentId: 1000054
+        secret: 1j59ezsl50EZ9FDbE9TIjEG55OcTh7YIdgkV2axcW6Q
+        token: 6NJy1pQMYe4
+        aesKey: v8GIRONpcI8a3mjhZ9i7IwJpUsKKtMBdfni8JVGaR7V

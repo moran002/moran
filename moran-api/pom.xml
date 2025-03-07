@@ -30,9 +30,17 @@
 
         <itextpdf.version>9.1.0</itextpdf.version>
         <itextpdfhtml.version>6.1.0</itextpdfhtml.version>
+
+        <weixin-java-cp.version>4.7.0</weixin-java-cp.version>
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.github.binarywang</groupId>
+            <artifactId>weixin-java-cp</artifactId>
+            <version>${weixin-java-cp.version}</version>
+        </dependency>
         <!-- pdf -->
         <dependency>
             <groupId>com.itextpdf</groupId>
