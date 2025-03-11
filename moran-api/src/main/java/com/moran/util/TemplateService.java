@@ -30,11 +30,13 @@ public class TemplateService {
      * @return 渲染后的 HTML 内容
      */
     public String renderTemplate(String templateName, Object data) {
-        // 创建 StringTemplateResolver
-        StringTemplateResolver stringTemplateResolver = new StringTemplateResolver();
-        stringTemplateResolver.setTemplateMode("HTML"); // 设置模板模式（HTML、TEXT、JAVASCRIPT、CSS、RAW等）
-        stringTemplateResolver.setCacheable(false); // 关闭缓存（可选）
-        templateEngine.setTemplateResolver(stringTemplateResolver);
+        if (!templateEngine.isInitialized()) {
+            // 创建 StringTemplateResolver
+            StringTemplateResolver stringTemplateResolver = new StringTemplateResolver();
+            stringTemplateResolver.setTemplateMode("HTML");
+            stringTemplateResolver.setCacheable(false);
+            templateEngine.setTemplateResolver(stringTemplateResolver);
+        }
         Context context = new Context();
         // 将数据放入上下文
         context.setVariable("data", data);
@@ -51,9 +53,6 @@ public class TemplateService {
     @SneakyThrows
     public void renderTemplateToFile(String templateName, Object data, String outputPath) {
         String htmlContent = renderTemplate(templateName, data);
-        System.out.println("html start ======>");
-        System.out.println(htmlContent);
-        System.out.println("======> html end ");
         FileUtil.appendUtf8String(htmlContent, outputPath);
     }
 

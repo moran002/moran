@@ -14,6 +14,7 @@ public class Invoice {
      * 订单编号
      */
     private String orderSn;
+    private String invoiceSn;
     /**
      * 发行时间
      */
