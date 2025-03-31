@@ -92,8 +92,6 @@ class PdfTest {
         PdfHeightListener listener = new PdfHeightListener();
         PdfCanvasProcessor parser = new PdfCanvasProcessor(listener);
         parser.processPageContent(fixedPdfDocument.getPage(1));
-        System.out.println(listener.getMaxY());
-        System.out.println(listener.getMinY());
         System.out.println(listener.getHeight()); // 221.57
     }
 
