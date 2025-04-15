@@ -60,17 +60,8 @@ public class CpTest {
     @Test
     @SneakyThrows
     void test4() {
-        WxCpService cpService = WxCpConfiguration.getCpService(1000054);
-        WxCpExternalContactService externalContactService = cpService.getExternalContactService();
-        WxCpMsgTemplate template = new WxCpMsgTemplate();
-        template.setChatType("group");
-        template.setChatIdList(List.of("wraTFjQQAA_UwjjeTAX5PzXX4gOzN9Tg"));
-        template.setSender("liuyun");
-        template.setAllowSelect(true);
-        Text text = new Text();
-        text.setContent("hahaha");
-        template.setText(text);
-        WxCpMsgTemplateAddResult result = externalContactService.addMsgTemplate(template);
-        System.out.println(result);
+        WxCpService cpService = WxCpConfiguration.getCpService(1000022);
+        String accessToken = cpService.getAccessToken();
+        System.out.println(accessToken);
     }
 }
