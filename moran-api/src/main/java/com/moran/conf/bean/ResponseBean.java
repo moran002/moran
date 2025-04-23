@@ -1,6 +1,5 @@
 package com.moran.conf.bean;
 
-import com.github.pagehelper.Page;
 import com.moran.conf.constant.CodeConstant;
 import com.moran.conf.constant.CommonConstant;
 import lombok.Getter;
@@ -35,18 +34,6 @@ public class ResponseBean<T> {
 
     public static <T> ResponseBean<T> ok(T data) {
         ResponseBean<T> result = createResult(CodeConstant.SUCCESS, CommonConstant.SUCCESS, data);
-        if (data instanceof Page) {
-            result.setTotal(String.valueOf(new PageData((Page) data).getTotal()));
-        }
-        return result;
-    }
-
-    public static <T> ResponseBean<T> ok(Object pageData, T data) {
-        ResponseBean<T> result = createResult(CodeConstant.SUCCESS, CommonConstant.SUCCESS, data);
-        if (pageData instanceof Page) {
-            result.setTotal(String.valueOf(new PageData((Page) pageData).getTotal()));
-        }
-        result.setData(data);
         return result;
     }
 
@@ -62,24 +49,4 @@ public class ResponseBean<T> {
         return result;
     }
 
-    /**
-     * com.github.pagehelper.Page 的代理类
-     */
-    static class PageData {
-        private Page page;
-
-        PageData(Page page) {
-            if (page == null) {
-                throw new RuntimeException("page can not be null");
-            }
-            this.page = page;
-        }
-
-        /**
-         * 总数
-         */
-        public long getTotal() {
-            return page.getTotal();
-        }
-    }
 }

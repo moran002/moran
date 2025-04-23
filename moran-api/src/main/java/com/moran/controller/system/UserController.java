@@ -1,5 +1,6 @@
 package com.moran.controller.system;
 
+import com.moran.conf.bean.PageResponseBean;
 import com.moran.conf.bean.ResponseBean;
 import com.moran.model.SysUser;
 import com.moran.model.dto.system.UserDTO;
@@ -7,11 +8,7 @@ import com.moran.model.vo.system.UserVO;
 import com.moran.service.SysUserService;
 import com.moran.util.ServletUtil;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -75,9 +72,9 @@ public class UserController {
      * @author :moran
      **/
     @GetMapping("/list")
-    public ResponseBean<List<UserVO>> list(String account, String nickName) {
+    public PageResponseBean<List<UserVO>> list(String account, String nickName) {
         ServletUtil.startPage();
         List<SysUser> list = userService.list(account, nickName);
-        return ResponseBean.ok(list, list.stream().map(UserVO::convert).collect(Collectors.toList()));
+        return PageResponseBean.ok(list, list.stream().map(UserVO::convert).collect(Collectors.toList()));
     }
 }

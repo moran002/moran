@@ -30,16 +30,16 @@
                     <lay-input :allow-clear="true" prefix-icon="layui-icon-password" placeholder="密码" password
                                type="password" v-model="state.loginForm.password"></lay-input>
                   </lay-form-item>
-                  <lay-form-item :label-width="0">
-                    <div style="width: 264px; display: inline-block">
-                      <lay-input :allow-clear="true" prefix-icon="layui-icon-vercode" placeholder="验证码"
-                                 v-model="state.loginForm.verifyCode"></lay-input>
-                    </div>
+<!--                  <lay-form-item :label-width="0">-->
+<!--                    <div style="width: 264px; display: inline-block">-->
+<!--                      <lay-input :allow-clear="true" prefix-icon="layui-icon-vercode" placeholder="验证码"-->
+<!--                                 v-model="state.loginForm.verifyCode"></lay-input>-->
+<!--                    </div>-->
 
-                    <div class="login-captach" @click="toRefreshImg">
-                      <img style="width: 100%" :src="state.imgUrl" alt="获取验证码"/>
-                    </div>
-                  </lay-form-item>
+<!--                    <div class="login-captach" @click="toRefreshImg">-->
+<!--                      <img style="width: 100%" :src="state.imgUrl" alt="获取验证码"/>-->
+<!--                    </div>-->
+<!--                  </lay-form-item>-->
                   <lay-checkbox value="" name="like" v-model="remember" skin="primary" label="1">记住密码</lay-checkbox>
                   <lay-form-item :label-width="0">
                     <lay-button style="margin-top: 20px" type="primary" :loading="loging" :fluid="true"
@@ -99,18 +99,18 @@ export default defineComponent({
         }
       })
     }
-    onMounted(() => {
-      toRefreshImg()
-    })
+    // onMounted(() => {
+    //   toRefreshImg()
+    // })
 
-    const toRefreshImg = async () => {
-      let data = await captcha()
-      state.imgUrl = data.data.imgUrl
-      state.loginForm.captchaId = data.data.captchaId
-    }
+    // const toRefreshImg = async () => {
+    //   let data = await captcha()
+    //   state.imgUrl = data.data.imgUrl
+    //   state.loginForm.captchaId = data.data.captchaId
+    // }
 
     return {
-      toRefreshImg,
+      // toRefreshImg,
       loginSubmit,
       state,
       remember,
